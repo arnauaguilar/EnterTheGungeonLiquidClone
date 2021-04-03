@@ -63,11 +63,11 @@ void Update (uint3 id : SV_DispatchThreadID)
 [numthreads(8,8,1)]
 void Diffuse (uint3 id : SV_DispatchThreadID)
 {
-    //if(Result[id.xy].a >= 1)
-    //{
-    //    Result[id.xy] -=  dt * diffuseSpeed;
-    //    if(Result[id.xy].r <= 0) Result[id.xy] = float4(Result[id.xy].r, Result[id.xy].g,Result[id.xy].b,0) ;
-    //}
+    if(Result[id.xy].b > stopSpreadingLifetime)
+    {
+        Result[id.xy] -= float4(Result[id.xy].r * dt * diffuseSpeed,0,0,0); // reduce liquid if lifetime is bigger than expected
+        if(Result[id.xy].r <= 0) Result[id.xy] = float4(Result[id.xy].r, Result[id.xy].g, 0,0) ;//reset lifetime to 0 when clear
+    }
 }
 
 [numthreads(8,8,1)]
@@ -75,3 +75,5 @@ void ClearAge (uint3 id : SV_DispatchThreadID)
 {
     Result[id.xy] = float4(0, 0,0,0);
 }
+
+

@@ -24,7 +24,6 @@ public class LiquidController : MonoBehaviour
     public float diffuseSpeed = 1;
     public float expandSpeed = 1;
     public float stopSpreadingLifetime;
-    public bool viewLifetime;
 
     void Start()
     {
@@ -84,9 +83,8 @@ public class LiquidController : MonoBehaviour
         computeShader.SetFloat("expandSpeed", expandSpeed);
         computeShader.SetFloat("diffuseSpeed", diffuseSpeed);
         computeShader.SetFloat("stopSpreadingLifetime", stopSpreadingLifetime);
-        computeShader.SetFloat("viewLifetime", viewLifetime? 1: 0);
-        
+
         computeShader.Dispatch(updateKernelID, computeRenderTexture.width / 8, computeRenderTexture.height / 8, 1);
-        //computeShader.Dispatch(diffuseKernelID, computeRenderTexture.width / 8, computeRenderTexture.height / 8, 1);
+        computeShader.Dispatch(diffuseKernelID, computeRenderTexture.width / 8, computeRenderTexture.height / 8, 1);
     }
 }

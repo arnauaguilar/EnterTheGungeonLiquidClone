@@ -36,8 +36,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/ComputeRenderTextureAssigner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" />
         <option value="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" />
       </list>
     </option>
   </component>
@@ -88,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1617440933258</updated>
       <workItem from="1617440946930" duration="10272000" />
-      <workItem from="1617465568871" duration="1753000" />
+      <workItem from="1617465568871" duration="2376000" />
     </task>
     <servers />
   </component>

@@ -20,7 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14d4d344-0f6b-480d-97e6-7ca4115b49a0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/DisplayMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/DisplayMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/New Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/New Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

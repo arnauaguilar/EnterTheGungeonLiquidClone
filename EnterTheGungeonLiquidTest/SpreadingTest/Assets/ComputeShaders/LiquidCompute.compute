@@ -15,6 +15,7 @@ float2 resolution;
 float dt;
 
 float diffuseSpeed = 1;
+float dieSpeed = 1;
 float expandSpeed = 1;
 
 float stopSpreadingLifetime = 0.5f;
@@ -54,7 +55,7 @@ void Update (uint3 id : SV_DispatchThreadID)
     }
     
     finalColor += neighboursColor/clamp(neighboursCount,0.01,1);//avoid divison by 0 when no neighbour is young
-    finalColor.b += dt * saturate(finalColor.r * 10000);
+    finalColor.b += dt * dieSpeed * saturate(finalColor.r * 100000);
     
     Result[id.xy] = finalColor;
 }

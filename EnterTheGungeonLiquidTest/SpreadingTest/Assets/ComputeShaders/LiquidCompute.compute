@@ -1,0 +1,68 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel Update
+#pragma kernel Diffuse
+#pragma kernel ClearAge
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float4> Result;
+
+RWTexture2D<float4> liquidRenderTexture;
+RWTexture2D<float4> obstacleRenderTexture;
+
+float2 resolution;
+
+float dt;
+
+float diffuseSpeed = 1;
+float expandSpeed = 1;
+
+[numthreads(8,8,1)]
+void Update (uint3 id : SV_DispatchThreadID)
+{
+    float4 finalColor = Result[id.xy];
+
+    //Make Obstacles be always black
+    if(distance(float4(0,0,0,0), obstacleRenderTexture[id.xy])>0)
+    {
+        Result[id.xy] = float4(0,0,0,0);
+        return;
+    }
+
+    
+    finalColor += liquidRenderTexture[id.xy]; // add The value of the emitter rendered on the liquid Render texture to our finalColor so that the sephere always emits
+
+    float4 neighboursColor = 0;
+    float neighboursCount =0;
+    for(int i =-1; i<2; i++)
+    {
+        for(int j =-1; j<2; j++)//Loop all the direct neighbours so that the liquid will expand to the neighbour pixels
+        {
+            if(i == 0 && j == 0)continue;
+            
+            neighboursColor += Result[id.xy + float2(i,j)] * dt * expandSpeed;
+            neighboursCount++;
+        } 
+    }
+    
+    finalColor += neighboursColor/neighboursCount;
+
+    
+    Result[id.xy] = finalColor;
+}
+
+[numthreads(8,8,1)]
+void Diffuse (uint3 id : SV_DispatchThreadID)
+{
+    //if(Result[id.xy].a >= 1)
+    //{
+    //    Result[id.xy] -=  dt * diffuseSpeed;
+    //    if(Result[id.xy].r <= 0) Result[id.xy] = float4(Result[id.xy].r, Result[id.xy].g,Result[id.xy].b,0) ;
+    //}
+}
+
+[numthreads(8,8,1)]
+void ClearAge (uint3 id : SV_DispatchThreadID)
+{
+    //Result[id.xy] = float4(Result[id.xy].r, Result[id.xy].g,Result[id.xy].b,0) ;
+}

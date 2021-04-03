@@ -18,7 +18,6 @@ float diffuseSpeed = 1;
 float expandSpeed = 1;
 
 float stopSpreadingLifetime = 0.5f;
-float viewLifetime = 0;
 
 //R -> Liquid quantity
 //G -> Liquid type
@@ -57,7 +56,7 @@ void Update (uint3 id : SV_DispatchThreadID)
     finalColor += neighboursColor/clamp(neighboursCount,0.01,1);//avoid divison by 0 when no neighbour is young
     finalColor.b += dt * saturate(finalColor.r * 10000);
     
-    Result[id.xy] = finalColor * float4(1, 0,viewLifetime,0);
+    Result[id.xy] = finalColor;
 }
 
 [numthreads(8,8,1)]

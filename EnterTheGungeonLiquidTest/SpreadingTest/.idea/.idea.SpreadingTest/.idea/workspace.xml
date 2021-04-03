@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14d4d344-0f6b-480d-97e6-7ca4115b49a0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +34,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/ComputeRenderTextureAssigner.cs" />
-        <option value="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" />
+        <option value="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" />
       </list>
     </option>
   </component>

@@ -17,6 +17,13 @@ float dt;
 float diffuseSpeed = 1;
 float expandSpeed = 1;
 
+//R -> Liquid quantity
+//G -> Liquid type
+//B -> Liquid lifetime
+//A -> ---------------
+
+float stopSpreadLiftime = 0.5f;
+
 [numthreads(8,8,1)]
 void Update (uint3 id : SV_DispatchThreadID)
 {
@@ -30,23 +37,24 @@ void Update (uint3 id : SV_DispatchThreadID)
     }
 
     
-    finalColor += liquidRenderTexture[id.xy]; // add The value of the emitter rendered on the liquid Render texture to our finalColor so that the sephere always emits
+    finalColor += float4(liquidRenderTexture[id.xy].r,0,0,0); // add The value of the emitter rendered on the liquid Render texture to our finalColor so that the sephere always emits
 
-    float4 neighboursColor = 0;
+    float4 neighboursColor = float4(0,0,0,0);
     float neighboursCount =0;
     for(int i =-1; i<2; i++)
     {
         for(int j =-1; j<2; j++)//Loop all the direct neighbours so that the liquid will expand to the neighbour pixels
         {
             if(i == 0 && j == 0)continue;
-            
-            neighboursColor += Result[id.xy + float2(i,j)] * dt * expandSpeed;
+            //if(Result[id.xy + float2(i,j)].b >= stopSpreadLiftime) continue;
+                
+            neighboursColor += float4(Result[id.xy + float2(i,j)].r,0,0,0) * dt * expandSpeed;
             neighboursCount++;
         } 
     }
     
     finalColor += neighboursColor/neighboursCount;
-
+    finalColor.b += dt * saturate(finalColor.r * 10000);
     
     Result[id.xy] = finalColor;
 }
@@ -64,5 +72,5 @@ void Diffuse (uint3 id : SV_DispatchThreadID)
 [numthreads(8,8,1)]
 void ClearAge (uint3 id : SV_DispatchThreadID)
 {
-    //Result[id.xy] = float4(Result[id.xy].r, Result[id.xy].g,Result[id.xy].b,0) ;
+    Result[id.xy] = float4(0, 0,0,0);
 }

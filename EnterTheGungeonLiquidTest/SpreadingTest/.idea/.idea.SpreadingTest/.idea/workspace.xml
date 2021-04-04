@@ -20,9 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14d4d344-0f6b-480d-97e6-7ca4115b49a0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/AreaIDMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AreaIDMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/FireIDMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FireIDMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/New Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/New Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SphereUpdater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SphereUpdater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/DisplayLiquid.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/DisplayLiquid.shadergraph" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +36,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LiquidSpawnerIdUpdater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/49F4E7E7-91CC-4FFF-ACD8-8F729E2B1E4C/78/b831153e/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SphereUpdater.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -40,6 +45,7 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/ComputeRenderTextureAssigner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LiquidSpawnerIdUpdater.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SphereUpdater.cs" />
         <option value="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" />
       </list>
@@ -95,6 +101,7 @@
       <updated>1617440933258</updated>
       <workItem from="1617440946930" duration="10272000" />
       <workItem from="1617465568871" duration="2376000" />
+      <workItem from="1617556416790" duration="3039000" />
     </task>
     <servers />
   </component>
@@ -113,6 +120,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

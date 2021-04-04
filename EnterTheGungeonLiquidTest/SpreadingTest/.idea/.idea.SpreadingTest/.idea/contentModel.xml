@@ -12,6 +12,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="LiquidController.cs" t="Include" />
+          <e p="LiquidSpawnerIdUpdater.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="SphereUpdater.cs" t="Include" />
         </e>

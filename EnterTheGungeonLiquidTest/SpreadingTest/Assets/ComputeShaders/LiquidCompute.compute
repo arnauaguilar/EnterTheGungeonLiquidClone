@@ -20,9 +20,9 @@ float expandSpeed = 1;
 float stopSpreadingLifetime = 0.5f;
 
 //R -> Liquid quantity
-//G -> Liquid type
+//G -> Liquid Availeable Area
 //B -> Liquid lifetime
-//A -> Liquid Availeable Area
+//A -> Liquid Type
 
 [numthreads(8,8,1)]
 void Update (uint3 id : SV_DispatchThreadID)
@@ -35,10 +35,12 @@ void Update (uint3 id : SV_DispatchThreadID)
         Result[id.xy] = float4(0,0,0,0);
         return;
     }
-
     
-    finalColor += float4(liquidRenderTexture[id.xy].r,0,0,0); // add The value of the emitter rendered on the liquid Render texture to our finalColor so that the sephere always emits
+    
+    finalColor += float4(liquidRenderTexture[id.xy].r,liquidRenderTexture[id.xy].g,0,0); // add The value of the emitter rendered on the liquid Render texture to our finalColor so that the sephere always emits
 
+    if(finalColor.g == 0) return;
+    
     float4 neighboursColor = float4(0,0,0,0);
     float neighboursCount =0;
     for(int i =-1; i<2; i++)
@@ -47,7 +49,8 @@ void Update (uint3 id : SV_DispatchThreadID)
         {
             if(i == 0 && j == 0)continue;
             if(Result[id.xy + float2(i,j)].b >= 1) continue;// Do not spread if you have more life than 0.5f
-                
+            //if(Result[id.xy + float2(i,j)].g != Result[id.xy].g)continue;//Do not mix with other liquids
+                     
             neighboursColor += float4(Result[id.xy + float2(i,j)].r,0,0,0) ;
             neighboursCount++;
         } 
@@ -72,7 +75,7 @@ void Diffuse (uint3 id : SV_DispatchThreadID)
 [numthreads(8,8,1)]
 void ClearAge (uint3 id : SV_DispatchThreadID)
 {
-    Result[id.xy] = float4(0, 0,0,0);
+    Result[id.xy] = float4(0, 0, 0, 0);
 }
 
 

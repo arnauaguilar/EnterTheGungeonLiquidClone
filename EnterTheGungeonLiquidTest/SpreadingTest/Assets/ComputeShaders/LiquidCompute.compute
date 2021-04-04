@@ -21,8 +21,8 @@ float stopSpreadingLifetime = 0.5f;
 
 //R -> Liquid quantity
 //G -> Liquid Availeable Area
-//B -> Liquid lifetime
-//A -> Liquid Type
+//B -> Liquid type
+//A -> Liquid lifetime
 
 [numthreads(8,8,1)]
 void Update (uint3 id : SV_DispatchThreadID)
@@ -48,7 +48,7 @@ void Update (uint3 id : SV_DispatchThreadID)
         for(int j =-1; j<2; j++)//Loop all the direct neighbours so that the liquid will expand to the neighbour pixels
         {
             if(i == 0 && j == 0)continue;
-            if(Result[id.xy + float2(i,j)].b >= 1) continue;// Do not spread if you have more life than 0.5f
+            if(Result[id.xy + float2(i,j)].a >= 1) continue;// Do not spread if you have more life than 0.5f
             //if(Result[id.xy + float2(i,j)].g != Result[id.xy].g)continue;//Do not mix with other liquids
                      
             neighboursColor += float4(Result[id.xy + float2(i,j)].r,0,0,0) ;
@@ -57,7 +57,7 @@ void Update (uint3 id : SV_DispatchThreadID)
     }
     
     finalColor += (neighboursColor * dt * expandSpeed) / clamp(neighboursCount,0.01,1);//avoid divison by 0 when no neighbour is young
-    finalColor.b += dt * (1.0f / stopSpreadingLifetime) * saturate(finalColor.r * 100000);
+    finalColor.a += dt * (1.0f / stopSpreadingLifetime) * saturate(finalColor.r * 100000);
     
     Result[id.xy] = finalColor;
 }
@@ -65,9 +65,9 @@ void Update (uint3 id : SV_DispatchThreadID)
 [numthreads(8,8,1)]
 void Diffuse (uint3 id : SV_DispatchThreadID)
 {
-    if(Result[id.xy].b >= 1)
+    if(Result[id.xy].a >= 1)
     {
-        Result[id.xy] -= float4(Result[id.xy].r * dt * diffuseSpeed, Result[id.xy].b,0,0); // reduce liquid if lifetime is bigger than expected
+        Result[id.xy] -= float4(Result[id.xy].r * dt * diffuseSpeed, Result[id.xy].a,0,0); // reduce liquid if lifetime is bigger than expected
         if(Result[id.xy].r <= 0.05f) Result[id.xy] = float4(0, 0, 0,0) ;//reset lifetime to 0 when clear
     }
 }

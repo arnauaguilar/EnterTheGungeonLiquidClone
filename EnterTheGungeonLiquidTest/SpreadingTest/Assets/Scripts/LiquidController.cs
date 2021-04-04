@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 public class LiquidController : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class LiquidController : MonoBehaviour
 
     public float diffuseSpeed = 1;
     public float expandSpeed = 1;
-    public float stopSpreadingLifetime;
+    public float lifetime;
 
     void Start()
     {
@@ -66,7 +67,8 @@ public class LiquidController : MonoBehaviour
 
     public void CreateRenderTexture(ref RenderTexture rt, Vector2Int size, int depth)
     {
-        rt = new RenderTexture(size.x,size.y,depth);
+        rt = new RenderTexture(size.x,size.y, depth);
+        rt.format = RenderTextureFormat.ARGB64;
         rt.enableRandomWrite = true;
         rt.Create();
     }
@@ -82,7 +84,7 @@ public class LiquidController : MonoBehaviour
         computeShader.SetFloat("dt", Time.deltaTime);
         computeShader.SetFloat("expandSpeed", expandSpeed);
         computeShader.SetFloat("diffuseSpeed", diffuseSpeed);
-        computeShader.SetFloat("stopSpreadingLifetime", stopSpreadingLifetime);
+        computeShader.SetFloat("stopSpreadingLifetime", lifetime);
 
         computeShader.Dispatch(updateKernelID, computeRenderTexture.width / 8, computeRenderTexture.height / 8, 1);
         computeShader.Dispatch(diffuseKernelID, computeRenderTexture.width / 8, computeRenderTexture.height / 8, 1);

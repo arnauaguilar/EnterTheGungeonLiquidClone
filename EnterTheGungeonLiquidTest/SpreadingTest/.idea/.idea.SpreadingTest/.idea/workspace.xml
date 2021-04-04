@@ -20,11 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14d4d344-0f6b-480d-97e6-7ca4115b49a0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpreadingTest/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/DisplayMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/DisplayMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/New Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/New Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/DisplayLiquid.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/DisplayLiquid.shadergraph" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,11 +33,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SphereUpdater.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/ComputeRenderTextureAssigner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LiquidController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SphereUpdater.cs" />
         <option value="$PROJECT_DIR$/Assets/ComputeShaders/LiquidCompute.compute" />
       </list>
     </option>
@@ -71,10 +74,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="1164">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="1164" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -112,5 +115,39 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1617528161991">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617528161991" />
+    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1617528161991">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617528161991" />
+    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1617528161990">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617528161990" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1617528161991">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617528161991" />
+    <state width="1877" height="235" key="GridCell.Tab.1.bottom" timestamp="1617528172936">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="235" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617528172936" />
+    <state width="1877" height="235" key="GridCell.Tab.1.center" timestamp="1617528172936">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="235" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617528172936" />
+    <state width="1877" height="235" key="GridCell.Tab.1.left" timestamp="1617528172936">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="235" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617528172936" />
+    <state width="1877" height="235" key="GridCell.Tab.1.right" timestamp="1617528172936">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="235" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617528172936" />
   </component>
 </project>

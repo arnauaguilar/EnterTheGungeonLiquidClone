@@ -15,7 +15,6 @@ float2 resolution;
 float dt;
 
 float diffuseSpeed = 1;
-float dieSpeed = 1;
 float expandSpeed = 1;
 
 float stopSpreadingLifetime = 0.5f;
@@ -55,7 +54,7 @@ void Update (uint3 id : SV_DispatchThreadID)
     }
     
     finalColor += neighboursColor/clamp(neighboursCount,0.01,1);//avoid divison by 0 when no neighbour is young
-    finalColor.b += dt * dieSpeed * saturate(finalColor.r * 100000);
+    finalColor.b += dt * saturate(finalColor.r * 100000);
     
     Result[id.xy] = finalColor;
 }
@@ -65,8 +64,8 @@ void Diffuse (uint3 id : SV_DispatchThreadID)
 {
     if(Result[id.xy].b > stopSpreadingLifetime)
     {
-        Result[id.xy] -= float4(Result[id.xy].r * dt * diffuseSpeed,0,0,0); // reduce liquid if lifetime is bigger than expected
-        if(Result[id.xy].r <= 0) Result[id.xy] = float4(Result[id.xy].r, Result[id.xy].g, 0,0) ;//reset lifetime to 0 when clear
+        Result[id.xy] -= float4(Result[id.xy].r * dt * diffuseSpeed,Result[id.xy].b,0,0); // reduce liquid if lifetime is bigger than expected
+        if(Result[id.xy].r <= 0.05f) Result[id.xy] = float4(0, 0, 0,0) ;//reset lifetime to 0 when clear
     }
 }
 
